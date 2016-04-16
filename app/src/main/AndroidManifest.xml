@@ -37,7 +37,11 @@
         <activity
             android:name=".QuestionsActivity"
             android:label="@string/title_activity_questions"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".ReplyActivity"
+            android:label="@string/title_activity_reply" >
         </activity>
     </application>
 

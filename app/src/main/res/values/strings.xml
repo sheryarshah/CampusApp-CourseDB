@@ -4,4 +4,21 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_course">CourseActivity</string>
     <string name="title_activity_questions">QuestionsActivity</string>
+
+    <string name="cancel">Cancel</string>
+
+    <!--3 menu buttons for posting, view and make groups -->
+    <string name="write_question">Write Question</string>
+    <string name="write_reply">Write Reply</string>
+    <string name="post">Post</string>
+
+    <string name="post_question">Post Question</string>
+    <string name="post_reply">Post Reply</string>
+    <string name="make_groups">Make Study Group</string>
+    <string name="view_groups">View Study Group</string>
+
+    <string name="delete_question">Delete</string>
+    <string name="edit_question">Edit</string>
+    <string name="title_activity_reply">ReplyActivity</string>
+
 </resources>

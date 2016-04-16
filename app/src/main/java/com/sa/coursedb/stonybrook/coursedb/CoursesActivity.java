@@ -40,10 +40,10 @@ public class CoursesActivity extends Activity {
 
     private SharedPreferences userNamePrefs;
 
-    SharedPreferences courseQuestionPrefs;
-    SharedPreferences.Editor courseQuestionEdit;
+    private SharedPreferences courseQuestionPrefs;
+    private SharedPreferences.Editor courseQuestionEdit;
 
-    SharedPreferences studentNamePrefs;
+    private SharedPreferences studentNamePrefs;
 
     private ArrayList<String> myCourses;
 
