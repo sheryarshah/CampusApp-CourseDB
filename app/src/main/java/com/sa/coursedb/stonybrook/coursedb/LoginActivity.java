@@ -216,9 +216,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Send data
                 Log.d(TAG, "Sending Data");
-               // URL url = new URL("http://10.0.3.2:8080/getCourses");
+                 URL url = new URL("http://10.0.3.2:8080/getCourses");
 
-                URL url = new URL("http://192.168.141.112:8080/getCourses");
+                //URL url = new URL("http://192.168.141.112:8080/getCourses");
                 //home
                 // URL url = new URL("http://192.168.1.237:8080/getCourses");
                 //send over secure connection
@@ -426,7 +426,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
     }
 

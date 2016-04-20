@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -94,7 +95,7 @@ public class CoursesActivity extends Activity {
                 con.setDoOutput(true);
                 PrintStream ps = new PrintStream(con.getOutputStream());
 
-                ps.print("userIDKey=" +netid);
+                ps.print("userIDKey=" + netid);
 
                 // we have to get the input stream in order to actually send the request
                 con.getInputStream();
@@ -132,7 +133,7 @@ public class CoursesActivity extends Activity {
 
     }
 
-    private void addCoursesToView(){
+    private void addCoursesToView() {
 
         studentName = (TextView) findViewById(R.id.studentNameID);
 
@@ -148,6 +149,7 @@ public class CoursesActivity extends Activity {
             //b.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_right, 0);
             b.setText(service.getCoursesList().get(i).getCourseTitle());
             b.setTextColor(Color.rgb((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)));
+            b.setTypeface(null, Typeface.BOLD);
 
             b.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             b.setId(i + 1);
@@ -161,7 +163,7 @@ public class CoursesActivity extends Activity {
                     //  i.putExtra("COURSES", courseList.get(index).toString());
                     bundle.putParcelable("CourseObject", service.getCoursesList().get(index));
 
-                    Log.d(TAG, "Course clicked on:" +service.getCoursesList().get(index).getCourseTitle());
+                    Log.d(TAG, "Course clicked on:" + service.getCoursesList().get(index).getCourseTitle());
 
                     courseQuestionEdit.putString("courseQuest", service.getCoursesList().get(index).getCourseTitle());
                     courseQuestionEdit.commit();

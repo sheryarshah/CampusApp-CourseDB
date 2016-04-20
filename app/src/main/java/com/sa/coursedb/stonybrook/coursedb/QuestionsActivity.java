@@ -116,14 +116,14 @@ public class QuestionsActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.edit:
-                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 //  editNote(info.id);
-              //  Toast.makeText(getApplicationContext(), "Edit Clicked", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getApplicationContext(), "Edit Clicked", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.delete:
-                AdapterView.AdapterContextMenuInfo info1 = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                AdapterView.AdapterContextMenuInfo info1 = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 String q = questionsList.get(info1.position);
-                Log.d(TAG, "Question is: " +q);
+                Log.d(TAG, "Question is: " + q);
                 QuestionDeleteAsync questionDeleteAsyncTask = new QuestionDeleteAsync();
                 questionDeleteAsyncTask.execute(q);
                 return true;
@@ -185,7 +185,7 @@ public class QuestionsActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            Log.d(TAG, "error is: " +result);
+            Log.d(TAG, "error is: " + result);
 
             if (result.equals("nonuser")) {
                 Toast.makeText(getBaseContext(), "Can't delete another user question", Toast.LENGTH_LONG).show();

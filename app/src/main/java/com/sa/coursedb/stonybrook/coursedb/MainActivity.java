@@ -22,12 +22,11 @@ public class MainActivity extends Activity {
 
         saveLogin = loginPreferences.getBoolean("saveLogin", false);
         Log.d(TAG, "login value: " + saveLogin);
-        if(saveLogin){
+        if (saveLogin) {
             Intent intent = new Intent(this, CoursesActivity.class);
             startActivity(intent);
             finish();
-        }
-        else{
+        } else {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

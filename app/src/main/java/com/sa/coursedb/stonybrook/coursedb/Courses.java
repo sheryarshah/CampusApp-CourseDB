@@ -20,11 +20,11 @@ public class Courses implements Parcelable {
         this.courseTitle = courseTitle;
     }*/
 
-    public Courses(String course){
+    public Courses(String course) {
         this.courseTitle = course;
     }
 
-    public Courses(){
+    public Courses() {
 
     }
 

@@ -43,7 +43,7 @@ public class CourseManagment {
     }
 
     public void storeData(JSONObject json) throws JSONException {
-     //   coursesList.add(new Courses(json.getString("Course"), json.getString("Description")));
+        //   coursesList.add(new Courses(json.getString("Course"), json.getString("Description")));
     }
 
     public void storeCourses(ArrayList<String> c) {

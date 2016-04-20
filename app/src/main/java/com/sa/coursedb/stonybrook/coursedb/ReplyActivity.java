@@ -1,3 +1,4 @@
+
 package com.sa.coursedb.stonybrook.coursedb;
 
 import android.app.AlertDialog;
@@ -78,8 +79,8 @@ public class ReplyActivity extends Activity {
         netID = userNamePrefs.getString("username", null);
 
         replies = (ListView) findViewById(R.id.replies_list);
-        courseText = (TextView)findViewById(R.id.course);
-        questionText = (TextView)findViewById(R.id.question);
+        courseText = (TextView) findViewById(R.id.course);
+        questionText = (TextView) findViewById(R.id.question);
 
         courseText.append(courseQuestionPrefs.getString("courseQuest", null));
         questionText.append(question);
@@ -117,9 +118,9 @@ public class ReplyActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.edit:
-                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 final String re = repliesList.get(info.position);
-                Log.d(TAG, "Reply is: " +re);
+                Log.d(TAG, "Reply is: " + re);
 
                 LayoutInflater inflater = LayoutInflater.from(context);
                 View dialogLayout = inflater.inflate(R.layout.post_reply, null);
@@ -164,9 +165,9 @@ public class ReplyActivity extends Activity {
 
                 return true;
             case R.id.delete:
-                AdapterView.AdapterContextMenuInfo info1 = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                AdapterView.AdapterContextMenuInfo info1 = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 String rd = repliesList.get(info1.position);
-                Log.d(TAG, "Question is: " +rd);
+                Log.d(TAG, "Question is: " + rd);
                 ReplyDeleteAsync replyDeleteAsyncTask = new ReplyDeleteAsync();
                 replyDeleteAsyncTask.execute(rd);
                 return true;
@@ -206,14 +207,13 @@ public class ReplyActivity extends Activity {
                 BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String line;
                 String line1 = "";
-                //    while ((line = rd.readLine()) != null) {
-                //        line1 += line;
+                while ((line = rd.readLine()) != null) {
+                    Log.d(TAG, "replyedit text: " + line);
+                    if (line.equals(newReply)) {
+                        error = "non";
+                    }
 
-                //     }
-
-                //    if (!line1.contains(reply)) {
-                //         error = "non";
-                //     }
+                }
 
                 // close the print stream
                 ps.close();
@@ -230,16 +230,16 @@ public class ReplyActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            Log.d(TAG, "error is: " +result);
+            Log.d(TAG, "error is: " + result);
 
-            //  if (result.equals("nonuser")) {
-            //       Toast.makeText(getBaseContext(), "Can't delete another user reply", Toast.LENGTH_LONG).show();
-            //      return;
-            // } else {
-            ReplyGetAsync replyGetAsyncTask = new ReplyGetAsync();
-            replyGetAsyncTask.execute();
+            if (result.equals("nonuser")) {
+                Toast.makeText(getBaseContext(), "Can't edit another user reply", Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                ReplyGetAsync replyGetAsyncTask = new ReplyGetAsync();
+                replyGetAsyncTask.execute();
 
-            //     }
+            }
 
             getWindow().setSoftInputMode(
                     WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -298,7 +298,7 @@ public class ReplyActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            Log.d(TAG, "error is: " +result);
+            Log.d(TAG, "error is: " + result);
 
             if (result.equals("nonuser")) {
                 Toast.makeText(getBaseContext(), "Can't delete another user reply", Toast.LENGTH_LONG).show();
@@ -506,3 +506,6 @@ public class ReplyActivity extends Activity {
     }
 
 }
+
+
+
